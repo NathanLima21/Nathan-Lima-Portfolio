@@ -1,0 +1,190 @@
+/* Layout Principal: Lado a Lado */
+.contact-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px; /* Espaço entre texto e formulário */
+  margin-top: 50px;
+}
+
+/* Coluna da Esquerda (Textos) */
+.contact-info {
+  flex: 1; /* Ocupa metade do espaço */
+}
+
+.contact-info h3 {
+  font-size: 2.5rem;
+  color: #f8fafc;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.contact-info p {
+  color: #94a3b8;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+/* Cards de Detalhes */
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-item {
+  background: rgba(30, 41, 59, 0.5);
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid #334155;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.contact-item:hover {
+  transform: translateX(12px);
+  background: rgba(34, 211, 238, 0.1);
+  border-left-color: #22d3ee;
+}
+
+.contact-item h4 {
+  color: #22d3ee;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+/* Freelance e Contratação lado a lado */
+.contact-item p {
+  color: #ffffff;
+  font-weight: 600;
+  display: flex;
+  gap: 10px;
+  margin: 0;
+}
+
+.contact-item p span:first-child::after {
+  content: "&";
+  margin-left: 10px;
+  color: #64748b;
+  font-weight: 400;
+}
+
+/* Coluna da Direita (Formulário) */
+.contact-form-container {
+  flex: 1; /* Ocupa a outra metade */
+  background: rgba(30, 41, 59, 0.7);
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos dos Inputs */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #22d3ee;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 14px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 2px solid #334155;
+  border-radius: 12px;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+  outline: none;
+  border-color: #22d3ee;
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.2);
+}
+
+/* Botão Enviar com Efeito Glow */
+.btn-submit {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #22d3ee 0%, #0ea5e9 100%);
+  color: #0f172a;
+  border: none;
+  border-radius: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.btn-submit:hover:not(:disabled) {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(34, 211, 238, 0.4);
+  filter: brightness(1.1);
+}
+
+/* Responsividade: Empilhar em telas pequenas */
+@media (max-width: 900px) {
+  .contact-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+* Mensagem de sucesso estilizada pós-envio */
+/* Container da mensagem de sucesso */
+.submit-message.success {
+  margin-top: 25px;
+  padding: 16px 20px;
+  background: rgba(34, 211, 238, 0.05); /* Fundo quase invisível para efeito glass */
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  border-radius: 12px;
+  color: #f8fafc; /* Texto branco para elegância */
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  backdrop-filter: blur(5px);
+  animation: messageReveal 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+/* O Ícone de Check Neon (Igual da sua foto) */
+.submit-message.success::before {
+  content: "✓";
+  width: 28px;
+  height: 28px;
+  background: #22d3ee; /* Cor ciano idêntica ao seu tema */
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 900;
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.6); /* Brilho neon externo */
+  flex-shrink: 0;
+}
+
+/* Animação de Surgimento */
+@keyframes messageReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(15px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

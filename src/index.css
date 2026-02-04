@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+
+:root {
+  --bg-dark: #0f172a;       /* Azul marinho muito escuro */
+  --bg-card: #1e293b;       /* Cor dos cartões */
+  --accent: #22d3ee;        /* Ciano neon para destaque */
+  --text-primary: #f8fafc;  /* Branco suave */
+  --text-secondary: #94a3b8; /* Cinza para textos menores */
+  --gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+   
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+section {
+  padding: 100px 10%;
+}
+
+h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+
+h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: var(--accent);
+  margin: 10px auto;
+  border-radius: 2px;
+}

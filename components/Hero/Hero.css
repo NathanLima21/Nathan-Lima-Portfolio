@@ -1,0 +1,136 @@
+Entendi, Nathan! Vamos transformar o seu Hero (a primeira impressão do seu site) em algo realmente impressionante. Pelas imagens que você mandou, o layout atual está funcional, mas o texto e a imagem estão "estáticos" e simples demais para um portfólio de tecnologia.
+
+Para deixar o visual mais detalhista e profissional, vamos focar em profundidade e contraste.
+
+🎨 O que vamos adicionar de "detalhe":
+Tipografia Dinâmica: O seu nome terá um gradiente que brilha.
+
+Efeito de Profundidade na Foto: Vamos adicionar uma borda de vidro (glassmorphism) e um brilho pulsante atrás da sua imagem.
+
+Marcadores de Código: Vamos colocar símbolos como /> ou _ no texto para remeter diretamente ao desenvolvimento de software.
+
+🛠️ Código CSS Completo para o Hero (Hero.css)
+Substitua o conteúdo do seu Hero.css por este para ver a mágica acontecer:
+
+CSS
+/* Container Geral */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5%;
+  background: radial-gradient(circle at 10% 20%, rgba(34, 211, 238, 0.05) 0%, transparent 40%);
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* --- LADO DA FOTO --- */
+.hero-image {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(34, 211, 238, 0.2);
+  z-index: 2;
+}
+
+/* Brilho de fundo que pulsa */
+.hero-image::after {
+  content: "";
+  position: absolute;
+  width: 370px;
+  height: 370px;
+  background: #22d3ee;
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 0.15;
+  z-index: 1;
+  animation: pulse-glow 4s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { transform: scale(1); opacity: 0.15; }
+  50% { transform: scale(1.2); opacity: 0.3; }
+}
+
+/* --- LADO DO TEXTO --- */
+.hero-content {
+  flex: 1.2;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero-content h1 span {
+  display: block; /* Nome em linha separada para destaque */
+  background: linear-gradient(135deg, #22d3ee 0%, #0ea5e9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 5px 15px rgba(34, 211, 238, 0.3));
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  color: #94a3b8;
+  max-width: 550px;
+  line-height: 1.6;
+  border-left: 4px solid #22d3ee;
+  padding-left: 20px;
+  margin-bottom: 35px;
+}
+
+/* Botão CTA Detalhado */
+.btn-cta {
+  display: inline-block;
+  padding: 18px 40px;
+  background: linear-gradient(135deg, #22d3ee 0%, #0ea5e9 100%);
+  color: #0f172a !important;
+  text-decoration: none;
+  font-weight: 800;
+  border-radius: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 20px rgba(34, 211, 238, 0.3);
+}
+
+.btn-cta:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(34, 211, 238, 0.4);
+  letter-spacing: 2px;
+}
+
+/* Responsividade */
+@media (max-width: 968px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-content p {
+    border-left: none;
+    border-bottom: 2px solid #22d3ee;
+    padding: 0 0 15px 0;
+    margin: 0 auto 30px;
+  }
+}
