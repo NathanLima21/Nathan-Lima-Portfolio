@@ -5,11 +5,13 @@
   align-items: flex-start;
   gap: 60px; /* Espaço entre texto e formulário */
   margin-top: 50px;
+  flex-wrap: wrap;
 }
 
 /* Coluna da Esquerda (Textos) */
 .contact-info {
   flex: 1; /* Ocupa metade do espaço */
+  min-width: 300px;
 }
 
 .contact-info h3 {
@@ -80,6 +82,7 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  min-width: 300px;
 }
 
 /* Estilos dos Inputs */
@@ -104,6 +107,7 @@
   border-radius: 12px;
   color: white;
   transition: all 0.3s ease;
+  font-size: 1rem;
 }
 
 .form-group input:focus, .form-group textarea:focus {
@@ -125,6 +129,7 @@
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.4s ease;
+  font-size: 1rem;
 }
 
 .btn-submit:hover:not(:disabled) {
@@ -133,23 +138,14 @@
   filter: brightness(1.1);
 }
 
-/* Responsividade: Empilhar em telas pequenas */
-@media (max-width: 900px) {
-  .contact-content {
-    flex-direction: column;
-    gap: 40px;
-  }
-}
-
-* Mensagem de sucesso estilizada pós-envio */
-/* Container da mensagem de sucesso */
+/* Mensagem de sucesso estilizada pós-envio */
 .submit-message.success {
   margin-top: 25px;
   padding: 16px 20px;
-  background: rgba(34, 211, 238, 0.05); /* Fundo quase invisível para efeito glass */
+  background: rgba(34, 211, 238, 0.05);
   border: 1px solid rgba(34, 211, 238, 0.2);
   border-radius: 12px;
-  color: #f8fafc; /* Texto branco para elegância */
+  color: #f8fafc;
   font-size: 0.95rem;
   font-weight: 500;
   display: flex;
@@ -160,12 +156,12 @@
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
 }
 
-/* O Ícone de Check Neon (Igual da sua foto) */
+/* O Ícone de Check Neon */
 .submit-message.success::before {
   content: "✓";
   width: 28px;
   height: 28px;
-  background: #22d3ee; /* Cor ciano idêntica ao seu tema */
+  background: #22d3ee;
   color: #0f172a;
   display: flex;
   align-items: center;
@@ -173,7 +169,7 @@
   border-radius: 50%;
   font-size: 14px;
   font-weight: 900;
-  box-shadow: 0 0 15px rgba(34, 211, 238, 0.6); /* Brilho neon externo */
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.6);
   flex-shrink: 0;
 }
 
@@ -186,5 +182,159 @@
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+
+/* RESPONSIVIDADE - MEDIA QUERIES */
+
+/* Para tablets grandes e desktops pequenos (900px - 1200px) */
+@media (max-width: 1200px) {
+  .contact-content {
+    gap: 40px;
+  }
+  
+  .contact-info h3 {
+    font-size: 2.2rem;
+  }
+  
+  .contact-form-container {
+    padding: 35px;
+  }
+}
+
+/* Para tablets (768px - 900px) */
+@media (max-width: 900px) {
+  .contact-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .contact-info, .contact-form-container {
+    width: 100%;
+    flex: none;
+  }
+  
+  .contact-info h3 {
+    font-size: 2rem;
+  }
+}
+
+/* Para smartphones grandes (576px - 768px) */
+@media (max-width: 768px) {
+  .contact-content {
+    margin-top: 30px;
+    gap: 30px;
+  }
+  
+  .contact-info h3 {
+    font-size: 1.8rem;
+  }
+  
+  .contact-info p {
+    font-size: 1rem;
+  }
+  
+  .contact-form-container {
+    padding: 25px;
+    border-radius: 20px;
+  }
+  
+  .form-group input, .form-group textarea {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+  
+  .btn-submit {
+    padding: 14px;
+    font-size: 0.95rem;
+  }
+  
+  .contact-item {
+    padding: 18px;
+  }
+}
+
+/* Para smartphones pequenos (até 576px) */
+@media (max-width: 576px) {
+  .contact-content {
+    margin-top: 20px;
+    gap: 25px;
+  }
+  
+  .contact-info h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+  }
+  
+  .contact-info p {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  .contact-form-container {
+    padding: 20px;
+    border-radius: 16px;
+  }
+  
+  .contact-item {
+    padding: 16px;
+  }
+  
+  .contact-item h4 {
+    font-size: 0.75rem;
+  }
+  
+  .contact-item p {
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+  }
+  
+  .form-group label {
+    font-size: 0.8rem;
+  }
+  
+  .form-group input, .form-group textarea {
+    padding: 12px 14px;
+    font-size: 0.9rem;
+  }
+  
+  .btn-submit {
+    padding: 14px;
+    font-size: 0.9rem;
+  }
+  
+  .submit-message.success {
+    padding: 14px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .submit-message.success::before {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+}
+
+/* Para telas muito pequenas (até 400px) */
+@media (max-width: 400px) {
+  .contact-info h3 {
+    font-size: 1.4rem;
+  }
+  
+  .contact-info p {
+    font-size: 0.9rem;
+  }
+  
+  .contact-form-container {
+    padding: 18px;
+  }
+  
+  .form-group input, .form-group textarea {
+    padding: 10px 12px;
+  }
+  
+  .contact-item {
+    padding: 14px;
   }
 }
